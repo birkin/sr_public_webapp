@@ -73,30 +73,6 @@ export SR_PUBWEBAPP__CACHES_JSON='
 ## app
 ## ============================================================================
 
-export SR_PUBWEBAPP__README_URL="https://github.com/birkin/django_template_32_project/blob/main/README.md"
-
-## auth -------------------------------------------------------------
-
-export SR_PUBWEBAPP__SUPER_USERS_JSON='[
-]'
-
-export SR_PUBWEBAPP__STAFF_USERS_JSON='
-[
-  "eppn@domain.edu"
-]'
-
-export SR_PUBWEBAPP__STAFF_GROUPER_GROUP="the:group"
-
-export SR_PUBWEBAPP__TEST_META_DCT_JSON='{
-  "Shibboleth-eppn": "eppn@brown.edu",
-  "Shibboleth-brownNetId": "First_Last",
-  "Shibboleth-mail": "first_last@domain.edu",
-  "Shibboleth-givenName": "First",
-  "Shibboleth-sn": "Last",
-  "Shibboleth-isMemberOf": "aa:bb:cc;dd:ee:ff;the:group;gg:hh"
-}'
-
-export SR_PUBWEBAPP__LOGIN_PROBLEM_EMAIL="sr_public_webapp_project_problems@domain.edu"
-
+export SR_PUBWEBAPP__README_URL="https://github.com/birkin/sr_public_webapp_project/blob/main/README.md"
 
 ## end --------------------------------------------------------------
