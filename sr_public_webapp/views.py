@@ -1,10 +1,11 @@
 import datetime, json, logging
 
 import trio
-from django.conf import settings as project_settings
+from django.conf import settings as settings_project
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
+from sr_public_webapp import settings_app
 from sr_public_webapp.lib import version_helper
 from sr_public_webapp.lib.version_helper import GatherCommitAndBranchData
 
@@ -18,7 +19,7 @@ log = logging.getLogger(__name__)
 
 
 def info(request):
-    return HttpResponse( "Hello, world." )
+    return HttpResponseRedirect( settings_app.INFO_URL_REDIRECT )
 
 
 def browse_via_url_load(request):
