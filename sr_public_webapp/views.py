@@ -21,6 +21,14 @@ def info(request):
     return HttpResponse( "Hello, world." )
 
 
+def browse_via_url_load(request):
+    return HttpResponse( "response from `browse_via_url_load()` coming" )
+
+
+def browse_via_file_load(request):
+    return HttpResponse( "response from `browse_via_file_load()` coming" )
+
+
 # -------------------------------------------------------------------
 # support urls
 # -------------------------------------------------------------------
