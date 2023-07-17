@@ -10,7 +10,7 @@ services:
       - ../:/container_project_stuff
       - ../DBs:/container_project_stuff/DBs
       - ../logs:/container_project_stuff/logs
-      - .:/container_project_stuff/sr_public_webapp
+      - .:/container_project_stuff/sr_public_webapp_project
     ports:
       - "8000:8000"
 
