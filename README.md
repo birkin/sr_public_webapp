@@ -14,7 +14,7 @@ The sample-urls implement a request for a few ways to load and display json cont
 ```
 $ mdir ./sr_public_webapp_stuff
 $ cd ./sr_public_webapp_stuff/
-$ git clone git@github.com:birkin/sr_public_webapp_project.git
+$ git clone git@github.com:Brown-University-Library/sr_public_webapp_project.git
 $ cd ./sr_public_webapp_project/
 $ docker-compose up
 ```
