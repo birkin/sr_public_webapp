@@ -40,7 +40,7 @@
 <div class="foo6">
     <p>Array of json-objects from file...</p>
     {% for object in people_from_file_key %}
-        <p>Name: {{ object.first_name }}</p>
+        <p>Name: {{ object.first_name }} {{ object.last_name }}</p>
     {% endfor %}
     <hr/>
 </div>
