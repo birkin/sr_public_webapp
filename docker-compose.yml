@@ -1,0 +1,22 @@
+version: "3.9"
+   
+services:
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: sr_public_webapp_container
+    volumes:
+      - ../:/container_project_stuff
+      - ../DBs:/container_project_stuff/DBs
+      - ../logs:/container_project_stuff/logs
+      - .:/container_project_stuff/sr_public_webapp
+    ports:
+      - "8000:8000"
+
+    environment:
+      - XPRJCT_42__ENV_SETTINGS_PATH=config/settings_localdev_env.sh
+
+    env_file: ./config/settings_localdev_env.sh
+
+    command: /bin/bash -c "python manage.py runserver 0.0.0.0:8000"
