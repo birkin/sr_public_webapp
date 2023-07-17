@@ -22,11 +22,44 @@ def info(request):
     return HttpResponseRedirect( settings_app.INFO_URL_REDIRECT )
 
 
-def browse_via_url_load(request):
+def sample_string_var(request):
+    var = 'Just a string-variable here; nothing to see.'
+    context = { 'var_key': var }
+    if request.GET.get('format', '') == 'json':
+        resp = HttpResponse( json.dumps(context, sort_keys=True, indent=2), content_type='application/json; charset=utf-8' )
+    else:
+        resp = render( request, 'sr_public_webapp_templates/template_testing.html', context )
+    return resp
+
+
+def sample_array(request):
+    array = [ 'one', 'two', 'three' ]
+    context = { 'array_key': array }
+    if request.GET.get('format', '') == 'json':
+        resp = HttpResponse( json.dumps(context, sort_keys=True, indent=2), content_type='application/json; charset=utf-8' )
+    else:
+        resp = render( request, 'sr_public_webapp_templates/template_testing.html', context )
+    return resp
+
+
+def sample_json_array(request):
+    person_A = { 'first_name': 'emma', 'last_name': 'goldman' }
+    person_B = { 'first_name': 'frida', 'last_name': 'kahlo' }
+    person_C = { 'first_name': 'eleanor', 'last_name': 'roosevelt' }
+    people = [ person_A, person_B, person_C ]
+    context = { 'people_key': people }
+    if request.GET.get('format', '') == 'json':
+        resp = HttpResponse( json.dumps(context, sort_keys=True, indent=2), content_type='application/json; charset=utf-8' )
+    else:
+        resp = render( request, 'sr_public_webapp_templates/template_testing.html', context )
+    return resp
+
+
+def sample_browse_via_url_load(request):
     return HttpResponse( "response from `browse_via_url_load()` coming" )
 
 
-def browse_via_file_load(request):
+def sample_browse_via_file_load(request):
     return HttpResponse( "response from `browse_via_file_load()` coming" )
 
 
@@ -41,8 +74,8 @@ def error_check( request ):
         - run, in another terminal window: `python -m smtpd -n -c DebuggingServer localhost:1026`,
         - (or substitue your own settings for localhost:1026)
     """
-    log.debug( f'project_settings.DEBUG, ``{project_settings.DEBUG}``' )
-    if project_settings.DEBUG == True:
+    log.debug( f'project_settings.DEBUG, ``{settings_project.DEBUG}``' )
+    if settings_project.DEBUG == True:
         log.debug( 'triggering exception' )
         raise Exception( 'Raising intentional exception.' )
     else:

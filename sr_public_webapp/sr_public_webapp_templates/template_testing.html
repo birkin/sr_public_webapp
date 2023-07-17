@@ -1,0 +1,48 @@
+{% extends "sr_public_webapp_templates/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="foo">
+    <p>Hard-coded paragraph-line.</p>
+    <hr/>
+</div>
+
+<div class="foo2">
+    <p>String-variable...</p>
+    <p>{{ var_key }}</p>
+    <hr/>
+</div>
+
+<div class="foo3">
+    <p>Array...</p>
+    {% for thing in array_key %}
+        <p>{{ thing }}</p>
+    {% endfor %}
+    <hr/>
+</div>
+
+<div class="foo4">
+    <p>Array of json-objects...</p>
+    {% for object in people_key %}
+        <p>Name: {{ object.first_name }} {{ object.last_name }}</p>
+    {% endfor %}
+    <hr/>
+</div>
+
+<div class="foo5">
+    <p>Array of json-objects from url...</p>
+    {% for object in people_from_url_key %}
+        <p>Name: {{ object.first_name }} {{ object.last_name }}</p>
+    {% endfor %}
+    <hr/>
+</div>
+
+<div class="foo6">
+    <p>Array of json-objects from file...</p>
+    {% for object in people_from_file_key %}
+        <p>Name: {{ object.first_name }}</p>
+    {% endfor %}
+    <hr/>
+</div>
+
+{% endblock content %}
