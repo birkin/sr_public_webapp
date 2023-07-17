@@ -15,7 +15,7 @@ services:
       - "8000:8000"
 
     environment:
-      - XPRJCT_42__ENV_SETTINGS_PATH=config/settings_localdev_env.sh
+      - SR_PUBWEBAPP__ENV_SETTINGS_PATH=config/settings_localdev_env.sh
 
     env_file: ./config/settings_localdev_env.sh
 
