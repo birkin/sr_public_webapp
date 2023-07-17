@@ -1,5 +1,5 @@
 """
-WSGI config for x_project.
+WSGI config for sr_public_webapp_project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

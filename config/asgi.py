@@ -1,5 +1,5 @@
 # """
-# ASGI config for x_app project.
+# ASGI config for sr_public_webapp project.
 
 # It exposes the ASGI callable as a module-level variable named ``application``.
 

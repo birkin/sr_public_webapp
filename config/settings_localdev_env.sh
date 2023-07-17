@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-## LOCALDEV settings for django `x_project`
+## LOCALDEV settings for django `sr_public_webapp_project`
 ##
 ## This file is loaded by `env/bin/activate` when running locally...
 ## ...and by `project/config/passenger_wsgi.py` on our servers.
@@ -34,7 +34,7 @@ export SR_PUBWEBAPP__DATABASES_JSON='
       "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "HOST": "",
-        "NAME": "../DB/x_project.sqlite3",
+        "NAME": "../DB/sr_public_webapp_project.sqlite3",
         "PASSWORD": "",
         "PORT": "",
         "USER": ""
@@ -49,7 +49,7 @@ export SR_PUBWEBAPP__EMAIL_HOST="localhost"
 export SR_PUBWEBAPP__EMAIL_PORT="1026"  # will be converted to int in settings.py
 export SR_PUBWEBAPP__SERVER_EMAIL="donotreply_x-project@domain.edu"
 
-export SR_PUBWEBAPP__LOG_PATH="../logs/x_project.log"
+export SR_PUBWEBAPP__LOG_PATH="../logs/sr_public_webapp_project.log"
 export SR_PUBWEBAPP__LOG_LEVEL="DEBUG"
 
 export SR_PUBWEBAPP__CSRF_TRUSTED_ORIGINS_JSON='["localhost", "127.0.0.1"]'
@@ -96,7 +96,7 @@ export SR_PUBWEBAPP__TEST_META_DCT_JSON='{
   "Shibboleth-isMemberOf": "aa:bb:cc;dd:ee:ff;the:group;gg:hh"
 }'
 
-export SR_PUBWEBAPP__LOGIN_PROBLEM_EMAIL="x_project_problems@domain.edu"
+export SR_PUBWEBAPP__LOGIN_PROBLEM_EMAIL="sr_public_webapp_project_problems@domain.edu"
 
 
 ## end --------------------------------------------------------------

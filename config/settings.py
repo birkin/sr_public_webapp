@@ -171,7 +171,7 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': False,
         },
-        'x_app': {
+        'sr_public_webapp': {
             'handlers': ['logfile'],
             'level': os.environ['SR_PUBWEBAPP__LOG_LEVEL'],
             'propagate': False
