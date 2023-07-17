@@ -8,7 +8,7 @@ services:
     container_name: sr_public_webapp_container
     volumes:
       - ../:/container_project_stuff
-      - ../DBs:/container_project_stuff/DBs
+      # - ../DBs:/container_project_stuff/DBs
       - ../logs:/container_project_stuff/logs
       - .:/container_project_stuff/sr_public_webapp_project
     ports:

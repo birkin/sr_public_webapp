@@ -10,7 +10,7 @@ ENV PYTHONUNBUFFERED=1
 ## who doesn't love a "stuff" directory!  :)
 WORKDIR /container_project_stuff/sr_public_webapp_project
 RUN mkdir /container_project_stuff/logs
-RUN mkdir /container_project_stuff/DBs
+# RUN mkdir /container_project_stuff/DBs
 
 ## set up the python environment
 COPY . /container_project_stuff/sr_public_webapp_project/

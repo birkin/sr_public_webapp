@@ -29,18 +29,18 @@ export SR_PUBWEBAPP__ADMINS_JSON='
 
 export SR_PUBWEBAPP__ALLOWED_HOSTS_JSON='["127.0.0.1", "127.0.0.1:8000", "0.0.0.0:8000", "localhost:8000"]'  # must be json
 
-export SR_PUBWEBAPP__DATABASES_JSON='
-    {
-      "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "HOST": "",
-        "NAME": "../DB/sr_public_webapp_project.sqlite3",
-        "PASSWORD": "",
-        "PORT": "",
-        "USER": ""
-      }
-    }
-    '
+# export SR_PUBWEBAPP__DATABASES_JSON='
+#     {
+#       "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "HOST": "",
+#         "NAME": "../DB/sr_public_webapp_project.sqlite3",
+#         "PASSWORD": "",
+#         "PORT": "",
+#         "USER": ""
+#       }
+#     }
+#     '
 
 export SR_PUBWEBAPP__STATIC_URL="/static/"
 export SR_PUBWEBAPP__STATIC_ROOT="/static/"
