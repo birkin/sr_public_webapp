@@ -23,9 +23,16 @@ services:
 
     # command: /bin/bash -c "if [ ! -f /container_project_stuff/example_data_source/foo.txt ]; then echo 'foo' > /container_project_stuff/example_data_source/foo.txt; fi; python manage.py runserver 0.0.0.0:8000"
 
+    # command: |
+    #   /bin/bash -c "
+    #   if [ ! -f /container_project_stuff/example_data_source/foo.txt ]; then 
+    #     echo 'foo' > /container_project_stuff/example_data_source/foo.txt; 
+    #   fi; 
+    #   python manage.py runserver 0.0.0.0:8000"
+
     command: |
       /bin/bash -c "
-      if [ ! -f /container_project_stuff/example_data_source/foo.txt ]; then 
-        echo 'foo' > /container_project_stuff/example_data_source/foo.txt; 
+      if [ ! -f /container_project_stuff/example_data_source/people.json ]; then 
+        echo '{\"people_from_url_key\": [{\"first_name\": \"emma\", \"last_name\": \"goldman\"},{\"first_name\": \"frida\", \"last_name\": \"kahlo\"},{\"first_name\": \"eleanor\", \"last_name\": \"roosevelt\"}]}' > /container_project_stuff/example_data_source/people.json;
       fi; 
       python manage.py runserver 0.0.0.0:8000"
