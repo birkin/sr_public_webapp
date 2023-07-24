@@ -20,6 +20,30 @@ For activating the virtual-environment manually, don't source the settings file 
   export PREFIX__ENV_SETTINGS_PATH="/path/to/project_env_settings.sh"
   source $PREFIX__ENV_SETTINGS_PATH
 This allows not only the sourcing, but also creates the env-var used below by shellvars.
+
+---
+
+Server...
+    - Virtual-environment: 
+        - The project's httpd/passenger.conf section allows specification of the python-path via `PassengerPython`, which auto-activates it.
+        - Example `<Location /project_root>` entry: `PassengerPython /path/to/env/bin/python3`
+    - Env-vars:
+        - The project's httpd/passenger.conf section allows specification of the env-vars via `SenEnv`, which specifies the path to the env_settings.sh file.
+        - Example `<Location /project_root>` entry: `SetEnv PREFIX__ENV_SETTINGS_PATH /path/to/project_env_settings.sh`
+        - This file uses that env-var to load the `project_env_settings.sh` envar settings.
+        - Apache is able to find this file via three other `<Location /project_root>` entries:
+            - `PassengerAppType wsgi` specifies the app-type
+            - `PassengerAppRoot /path/to/project/config` specifies the config-directory
+            - `PassengerStartupFile passenger_wsgi.py` specifies this startup file
+
+Localdev using a virtual-environment and `python ./manage.py runserver`...
+    - Virtual-environment:
+        - Activated by manually by cd-ing into the project-directory, and running `source ../env/bin/activate`
+    - Env-vars:
+        - Activated by the above command, by the addition of the following line to the bottom of the `env/bin/activate` file:
+            - `export PREFIX__ENV_SETTINGS_PATH="/path/to/project_env_settings.sh"`
+
+
 """
 
 
