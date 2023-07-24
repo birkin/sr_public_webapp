@@ -19,4 +19,13 @@ services:
 
     env_file: ./config/settings_localdev_env.sh
 
-    command: /bin/bash -c "python manage.py runserver 0.0.0.0:8000"
+    # command: /bin/bash -c "python manage.py runserver 0.0.0.0:8000"
+
+    # command: /bin/bash -c "if [ ! -f /container_project_stuff/example_data_source/foo.txt ]; then echo 'foo' > /container_project_stuff/example_data_source/foo.txt; fi; python manage.py runserver 0.0.0.0:8000"
+
+    command: |
+      /bin/bash -c "
+      if [ ! -f /container_project_stuff/example_data_source/foo.txt ]; then 
+        echo 'foo' > /container_project_stuff/example_data_source/foo.txt; 
+      fi; 
+      python manage.py runserver 0.0.0.0:8000"
