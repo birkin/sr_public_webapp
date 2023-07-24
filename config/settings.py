@@ -97,8 +97,6 @@ TEMPLATES = [
 # ]
 
 
-
-
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
@@ -149,7 +147,9 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = os.environ['SR_PUBWEBAPP__STATIC_URL']
+STATIC_ROOT = os.environ['SR_PUBWEBAPP__STATIC_ROOT']  # needed for collectstatic command
+
 
 # Email
 SERVER_EMAIL = os.environ['SR_PUBWEBAPP__SERVER_EMAIL']
