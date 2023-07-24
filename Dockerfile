@@ -14,8 +14,6 @@ RUN mkdir /container_project_stuff/logs
 RUN mkdir /container_project_stuff/example_data_source
 RUN echo "foo" > /container_project_stuff/example_data_source/foo.txt
 
-# RUN mkdir /container_project_stuff/DBs
-
 ## set up the python environment
 COPY . /container_project_stuff/sr_public_webapp_project/
 RUN pip install -r ./config/requirements_localdev.txt 
