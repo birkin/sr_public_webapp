@@ -1,4 +1,6 @@
-version: "3.9"
+version: "3.8"
+## Specifies the version of the Compose file-format; must be compatible with the version of the Docker Engine.
+## See: https://docs.docker.com/compose/compose-file/compose-versioning/
    
 services:
   web:
