@@ -21,7 +21,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # log.debug( f'BASE_DIR, ``{BASE_DIR}``' )
 
 
-# Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -34,7 +33,7 @@ DEBUG = json.loads( os.environ['SR_PUBWEBAPP__DEBUG_JSON'] )
 
 ADMINS = json.loads( os.environ['SR_PUBWEBAPP__ADMINS_JSON'] )
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = json.loads( os.environ['SR_PUBWEBAPP__ALLOWED_HOSTS_JSON'] )
 
 
 # Application definition
@@ -97,8 +96,6 @@ TEMPLATES = [
 # ]
 
 
-
-
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
@@ -149,7 +146,9 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = os.environ['SR_PUBWEBAPP__STATIC_URL']
+STATIC_ROOT = os.environ['SR_PUBWEBAPP__STATIC_ROOT']  # needed for collectstatic command
+
 
 # Email
 SERVER_EMAIL = os.environ['SR_PUBWEBAPP__SERVER_EMAIL']
