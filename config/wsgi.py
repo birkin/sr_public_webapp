@@ -31,18 +31,21 @@ Server...
         - The project's httpd/passenger.conf section allows specification of the env-vars via `SenEnv`, which specifies the path to the env_settings.sh file.
         - Example `<Location /project_root>` entry: `SetEnv PREFIX__ENV_SETTINGS_PATH /path/to/project_env_settings.sh`
         - This file uses that env-var to load the `project_env_settings.sh` envar settings.
-        - Apache is able to find this file via three other `<Location /project_root>` entries:
+        - Passenger is able to find this file via three other `<Location /project_root>` entries:
             - `PassengerAppType wsgi` specifies the app-type
             - `PassengerAppRoot /path/to/project/config` specifies the config-directory
-            - `PassengerStartupFile passenger_wsgi.py` specifies this startup file
+            - `PassengerStartupFile wsgi.py` specifies this startup file
 
 Localdev using a virtual-environment and `python ./manage.py runserver`...
     - Virtual-environment:
         - Activated by manually by cd-ing into the project-directory, and running `source ../env/bin/activate`
     - Env-vars:
-        - Activated by the above command, by the addition of the following line to the bottom of the `env/bin/activate` file:
-            - `export PREFIX__ENV_SETTINGS_PATH="/path/to/project_env_settings.sh"`
+        - Activated by running, from within the project-directory, `source /path/to/project_env_settings.sh` (or sometimes that line is added to the venv's `activate` file)
 
+Localdev using `docker-compose up`...
+    - Virtual-environment: not applicable; the Dockerfile pip-installs the requirements right into the container's python-environment.
+    - Env-vars:
+        - The docker-compose.yml file specifies the env-vars in the `environment` section.
 
 """
 
