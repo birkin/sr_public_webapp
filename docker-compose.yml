@@ -7,29 +7,20 @@ services:
       dockerfile: Dockerfile
     container_name: sr_public_webapp_container
     volumes:
-      - ../:/container_project_stuff
-      - ../logs:/container_project_stuff/logs
-      - ../example_data_source:/container_project_stuff/example_data_source
-      - .:/container_project_stuff/sr_public_webapp_project
+      - ../:/container_project_stuff                                          # maps parent-directory on the host to '/container_project_stuff' in the Docker container.
+      - ../logs:/container_project_stuff/logs                                 # maps the 'logs' sub-directory from the parent-directory on the host to '/container_project_stuff/logs' in the Docker container.
+      - ../example_data_source:/container_project_stuff/example_data_source   # maps the 'example_data_source' sub-directory from the parent-directory on the host to '/container_project_stuff/example_data_source' in the Docker container.
+      - .:/container_project_stuff/sr_public_webapp_project                   # maps the current-directory on the host to '/container_project_stuff/sr_public_webapp_project' in the Docker container.
     ports:
-      - "8000:8000"
+      - "8000:8000"                                                           # maps port 8000 on the host to port 8000 in the Docker container.
 
     environment:
       - SR_PUBWEBAPP__ENV_SETTINGS_PATH=config/settings_localdev_env.sh
 
     env_file: ./config/settings_localdev_env.sh
 
-    # command: /bin/bash -c "python manage.py runserver 0.0.0.0:8000"
-
-    # command: /bin/bash -c "if [ ! -f /container_project_stuff/example_data_source/foo.txt ]; then echo 'foo' > /container_project_stuff/example_data_source/foo.txt; fi; python manage.py runserver 0.0.0.0:8000"
-
-    # command: |
-    #   /bin/bash -c "
-    #   if [ ! -f /container_project_stuff/example_data_source/foo.txt ]; then 
-    #     echo 'foo' > /container_project_stuff/example_data_source/foo.txt; 
-    #   fi; 
-    #   python manage.py runserver 0.0.0.0:8000"
-
+    ## The vertical pipe "|"" in YAML is used to indicate a literal block of text; allowing the different commands to be written on separate lines.
+    ## Starts a new bash shell and runs the following two commands: the people.json if-check command -- and then runs the runserver command.
     command: |
       /bin/bash -c "
       if [ ! -f /container_project_stuff/example_data_source/people.json ]; then 
