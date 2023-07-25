@@ -18,7 +18,7 @@
     {% endblock header_other %}
 </head>
 
-<body class="container-fluid {% if user.is_authenticated %}user-editor {% endif %}">
+<body class="container-fluid">
     <header class="d-flex py-2 row  justify-content-between bg-primary">
         <h1 class="col-md-4"><a href="{% url 'info_url' %}" class="link-light">Stolen Relations: <span>Recovering Stories of Indigenous Enslavement in the Americas</span></a></h1>
         {% if not flag_maintenance %}
