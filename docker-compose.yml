@@ -16,10 +16,10 @@ services:
     ports:
       - "8000:8000"                                                           # maps port 8000 on the host to port 8000 in the Docker container.
 
-    # environment:
-    #   - SR_PUBWEBAPP__ENV_SETTINGS_PATH=config/settings_localdev_env.sh
+    environment:
+      - SR_PUBWEBAPP__ENV_SETTINGS_PATH=config/settings_localdev_env.sh
 
-    env_file: ./config/settings_localdev_env.sh
+    # env_file: ./config/settings_localdev_env.sh
 
     ## The vertical pipe "|"" in YAML is used to indicate a literal block of text; allowing the different commands to be written on separate lines.
     ## Starts a new bash shell and runs the following two commands: the people.json if-check command -- and then runs the runserver command.
