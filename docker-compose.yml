@@ -16,8 +16,8 @@ services:
     ports:
       - "8000:8000"                                                           # maps port 8000 on the host to port 8000 in the Docker container.
 
-    environment:
-      - SR_PUBWEBAPP__ENV_SETTINGS_PATH=config/settings_localdev_env.sh
+    # environment:
+    #   - SR_PUBWEBAPP__ENV_SETTINGS_PATH=config/settings_localdev_env.sh
 
     env_file: ./config/settings_localdev_env.sh
 
